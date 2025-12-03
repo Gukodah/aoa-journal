@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import SideNav from "./SideNav";
 import NavigationProgress from "./NavigationProgress";
 import { ProgressProvider } from "../context/ProgressProvider.jsx";
+import { Analytics } from "@vercel/analytics/next"
 
 const Layout = ({ children, initialProgress }) => {
   const pathname = usePathname();
@@ -59,6 +60,7 @@ const Layout = ({ children, initialProgress }) => {
 
   return (
     <>
+      <Analytics />
       <SignedIn>
         <ProgressProvider initialProgress={initialProgress}>
           <div className="app-root">

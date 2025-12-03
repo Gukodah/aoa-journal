@@ -4,6 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import Layout from "../components/Layout";
 import { supabaseAdmin } from "../lib/supabaseAdmin.js";
 
+
 const TABLE = process.env.SUPABASE_USERS_TABLE || "users";
 const PROGRESS_COLUMN = process.env.SUPABASE_PROGRESS_COLUMN || "pogress_data";
 
