@@ -1,0 +1,505 @@
+{
+    "version": 1,
+    "benches": [
+        {
+            "id": "nevermine:charging_table",
+            "block": "SpecialBlockizer.ChargingTable",
+            "type": "inventory_to_item",
+            "recipes": [
+                {
+                    "id": "charging_table_boulder_dash",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.HeavyBoulder",
+                            "count": 1,
+                            "source": "inventory"
+                        },
+                        {
+                            "item": "Itemizer.PrimordialDust",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Itemizer.BoulderDash",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nevermine:hydro_table",
+            "block": "SpecialBlockizer.HydroTable",
+            "type": "inventory_to_entity",
+            "recipes": [
+                {
+                    "id": "hydro_table_hydrolisk_shield",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.PureWaterStone",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "entity": "EntityHydroliskShield",
+                            "count": 1,
+                            "spawn_offset": {
+                                "x": 0,
+                                "y": 3,
+                                "z": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nevermine:filtration_system",
+            "blocks": [
+                "SpecialBlockizer.FiltrationSystemOff",
+                "SpecialBlockizer.FiltrationSystemOn"
+            ],
+            "type": "stateful_machine",
+            "recipes": [
+                {
+                    "id": "filtration_fill_lava",
+                    "state_required": "off",
+                    "bench_block": "SpecialBlockizer.FiltrationSystemOff",
+                    "inputs": [
+                        {
+                            "item": "Items.lava_bucket",
+                            "count": 1,
+                            "source": "held"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Items.bucket",
+                            "count": 1
+                        },
+                        {
+                            "block_state": "SpecialBlockizer.FiltrationSystemOn"
+                        }
+                    ]
+                },
+                {
+                    "id": "filtration_make_magic_mending_solution",
+                    "state_required": "on",
+                    "bench_block": "SpecialBlockizer.FiltrationSystemOn",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.MetalTub",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.MagicMendingCompound",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Itemizer.MagicMendingSolution",
+                            "count": 1
+                        },
+                        {
+                            "block_state": "SpecialBlockizer.FiltrationSystemOff"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nevermine:teasink",
+            "blocks": [
+                "SpecialBlockizer.Teasink",
+                "SpecialBlockizer.TeasinkFull"
+            ],
+            "type": "stateful_machine",
+            "recipes": [
+                {
+                    "id": "teasink_fill_water",
+                    "bench_block": "SpecialBlockizer.Teasink",
+                    "inputs": [
+                        {
+                            "item": "Items.water_bucket",
+                            "count": 1,
+                            "source": "held"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Items.bucket",
+                            "count": 1
+                        },
+                        {
+                            "block_state": "SpecialBlockizer.TeasinkFull"
+                        }
+                    ]
+                },
+                {
+                    "id": "teasink_full_fungal_tea",
+                    "bench_block": "SpecialBlockizer.TeasinkFull",
+                    "conditions": [
+                        {
+                            "item": "Itemizer.Cup",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.TeaShreddings",
+                            "count": 1,
+                            "source": "inventory"
+                        },
+                        {
+                            "item": "Itemizer.HavenShrooms",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "inputs": [
+                        {
+                            "item": "Itemizer.Cup",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.TeaShreddings",
+                            "count": 1,
+                            "source": "inventory"
+                        },
+                        {
+                            "item": "Itemizer.HavenShrooms",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Itemizer.FungalTea",
+                            "count": 1
+                        },
+                        {
+                            "block_state_random_reset": {
+                                "to": "SpecialBlockizer.Teasink",
+                                "chance": 0.14285714285714285
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "teasink_full_natural_tea",
+                    "bench_block": "SpecialBlockizer.TeasinkFull",
+                    "conditions": [
+                        {
+                            "item": "Itemizer.Cup",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.TeaShreddings",
+                            "count": 1,
+                            "source": "inventory"
+                        },
+                        {
+                            "item": "Itemizer.NatureMelonSlice",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "inputs": [
+                        {
+                            "item": "Itemizer.Cup",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.TeaShreddings",
+                            "count": 1,
+                            "source": "inventory"
+                        },
+                        {
+                            "item": "Itemizer.NatureMelonSlice",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Itemizer.NaturalTea",
+                            "count": 1
+                        },
+                        {
+                            "block_state_random_reset": {
+                                "to": "SpecialBlockizer.Teasink",
+                                "chance": 0.14285714285714285
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "teasink_full_plain_tea",
+                    "bench_block": "SpecialBlockizer.TeasinkFull",
+                    "conditions": [
+                        {
+                            "item": "Itemizer.Cup",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.TeaShreddings",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "inputs": [
+                        {
+                            "item": "Itemizer.Cup",
+                            "count": 1,
+                            "source": "held"
+                        },
+                        {
+                            "item": "Itemizer.TeaShreddings",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Itemizer.Tea",
+                            "count": 1
+                        },
+                        {
+                            "block_state_random_reset": {
+                                "to": "SpecialBlockizer.Teasink",
+                                "chance": 0.14285714285714285
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nevermine:mending_table",
+            "block": "Blockizer.MendingTable",
+            "type": "inventory_to_item",
+            "recipes": [
+                {
+                    "id": "mending_table_rusted_iron_to_iron",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.IngotRustedIron",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "item": "Items.iron_ingot",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nevermine:infusion_table",
+            "block": "Blockizer.InfusionTable",
+            "type": "enchant_infusion",
+            "recipes": [
+                {
+                    "id": "infusion_unbreaking",
+                    "infusion_type": "Durability",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.pStoneBlooming",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "target_requirements": [
+                        {
+                            "enchantment_absent": "Enchantment.unbreaking"
+                        }
+                    ],
+                    "effect": {
+                        "apply_enchantment": "Enchantment.unbreaking",
+                        "level_source": "infusionHelper.getInfusionEnchantLevel(Unbreaking, cont.getLevel(Infusion))"
+                    }
+                },
+                {
+                    "id": "infusion_sea_luck",
+                    "infusion_type": "Magical",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.pStoneRadiant",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "target_requirements": [
+                        {
+                            "enchantment_absent": "Enchantment.field_151370_z"
+                        }
+                    ],
+                    "effect": {
+                        "apply_enchantment": "Enchantment.field_151370_z",
+                        "level_source": "infusionHelper.getInfusionEnchantLevel(SeaLuck, cont.getLevel(Infusion))"
+                    }
+                },
+                {
+                    "id": "infusion_lure",
+                    "infusion_type": "Magical",
+                    "inputs": [
+                        {
+                            "item": "Itemizer.pStoneGlowing",
+                            "count": 1,
+                            "source": "inventory"
+                        }
+                    ],
+                    "target_requirements": [
+                        {
+                            "enchantment_absent": "Enchantment.field_151369_A"
+                        }
+                    ],
+                    "effect": {
+                        "apply_enchantment": "Enchantment.field_151369_A",
+                        "level_source": "infusionHelper.getInfusionEnchantLevel(Lure, cont.getLevel(Infusion))"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nevermine:lunar_creation_table",
+            "block": "Blockizer.LunarCreationTable",
+            "type": "world_orb_pattern",
+            "recipes": [
+                {
+                    "id": "lunar_creation_ion_revolver",
+                    "orbs": {
+                        "NW": "Blockizer.OrbDusk",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.IonRevolver",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_ion_blaster",
+                    "orbs": {
+                        "NW": "Blockizer.OrbDusk",
+                        "SW": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.IonBlaster",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_lunar_staff",
+                    "orbs": {
+                        "NW": "Blockizer.OrbDarklight",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.LunarStaff",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_moonlight_staff",
+                    "orbs": {
+                        "NW": "Blockizer.OrbMoonlight",
+                        "NE": "Blockizer.OrbMoonlight",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.MoonlightStaff",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_meteor_staff",
+                    "orbs": {
+                        "NW": "Blockizer.OrbLunar",
+                        "NE": "Blockizer.OrbLunar",
+                        "SW": "Blockizer.OrbLunar",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.MeteorStaff",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_energy_cannon",
+                    "orbs": {
+                        "NE": "Blockizer.OrbMoonlight",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.EnergyCannon",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_sun_staff",
+                    "orbs": {
+                        "NW": "Blockizer.OrbSunfire",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.SunStaff",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_celestial_staff",
+                    "orbs": {
+                        "NW": "Blockizer.OrbLunar",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.CelestialStaff",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "lunar_creation_atomizer",
+                    "orbs": {
+                        "NW": "Blockizer.OrbMoonlight",
+                        "SE": "Blockizer.OrbLunar"
+                    },
+                    "outputs": [
+                        {
+                            "item": "Weaponizer.Atomizer",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

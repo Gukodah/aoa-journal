@@ -1,0 +1,740 @@
+export const Nether = {
+  id: "nether",
+  name: "The Nether",
+  tier: 1,
+  prerequisiteDimension: "The Overworld",
+  theme:
+    "Submundo em chamas onde facções demoníacas de AoA dividem espaço com mobs clássicos do Minecraft, repleto de lava, bastiões e estranhas arenas naturais.",
+  shortDescription:
+    "Redes de cavernas e vazios em chamas conectados por pontes de Nether Brick, cavernas de basaltos e florestas carmesim/warpadas, com Hunters, lottomen e chefes opcionais vagando entre as fortalezas.",
+  imageUrl: "/dimensions/nether_images/The_Nether.png",
+  wikiUrl: "https://adventofascension.fandom.com/wiki/The_Nether",
+  realmstone: {
+    obtainHint:
+      "Construa um portal de Obsidian e acenda com um Flint and Steel como no Minecraft vanilla.",
+    obtainDetails:
+      "Monte uma moldura 4x5 ou maior de Obsidian, acenda o interior com Flint and Steel (ou Fire Charge) e atravesse o portal para carregar a dimensão. Jogadores que já estejam em outras dimensões podem retornar ao Overworld e usar o portal normalmente.",
+    imageUrl: "/dimensions/nether_images/Nether_Portal.png",
+  },
+  mainObjectives: [
+    {
+      id: "nether_unlock_bosses",
+      title: "Preparar lutas de chefes",
+      description:
+        "Monte arenas e colete totems para enfrentar King BamBamBam e Nethengeic Wither, passos obrigatórios para liberar estruturas e recompensas de tiers mais altos.",
+      imageUrl: "/dimensions/nether_images/Nethengeic_Wither.png",
+    },
+    {
+      id: "nether_token_farming",
+      title: "Farmar Hunter e tokens",
+      description:
+        "Derrote Hellcats, Embrakes, Hellions e outros mobs de Hunter para juntar Nether Tokens, Hellfire Stones e moedas usadas em lottomen especiais.",
+      imageUrl: "/dimensions/nether_images/Hellcat.png",
+    },
+    {
+      id: "nether_resource_loop",
+      title: "Recolher recursos infernais",
+      description:
+        "Colete Nether Runium Ore, Ancient Debris e Nether Wart Blocks para fabricar armas/armaduras híbridas e preparar progressão em outras dimensões.",
+      imageUrl: "/dimensions/nether_images/Ancient_Debris.png",
+    },
+  ],
+  secondaryObjectives: [
+    {
+      id: "nether_lottomen",
+      title: "Encontrar lottomen raros",
+      description:
+        "Localize barracas de Lottomen em cavernas abertas para trocar Nether Tokens por totens (Netherskull Sword, Magic Repair Dust e outros itens limitados).",
+      imageUrl: "/dimensions/nether_images/Lottoman.png",
+    },
+    {
+      id: "nether_asteroids",
+      title: "Explorar asteroides e poços",
+      description:
+        "Suba até asteroides suspensos e estruture escadas até poços Nethengeic para coletar loot temático e blocos decorativos raros.",
+      imageUrl: "/dimensions/nether_images/Nether_Asteroid_1.png",
+    },
+    {
+      id: "nether_trade_route",
+      title: "Criar rotas seguras",
+      description:
+        "Construa túneis protegidos com blocos resistentes (Basalt, Nether Brick) para ligar bastiões, fortalezas e portais portáteis.",
+      imageUrl: "/dimensions/nether_images/Hellstone_Brick_Wall.png",
+    },
+  ],
+  progressionNotes: [
+    {
+      id: "nether_progression_1",
+      title: "Checkpoint entre tiers",
+      description:
+        "É a primeira dimensão além do Overworld e conecta rotas para Abyss e Gardencia via drops específicos (Nightmare Flakes, Blooming Realmstones).",
+      imageUrl: "/dimensions/nether_images/Nether_Realmstone.png",
+    },
+    {
+      id: "nether_progression_2",
+      title: "Arena para eventos",
+      description:
+        "Eventos como Nether Tour e desafios de Hunter aparecem apenas aqui, permitindo grind seguro antes de enfrentar dimensões sombrias.",
+      imageUrl: "/dimensions/nether_images/Nether_Tourist.png",
+    },
+  ],
+  mobs: [
+    {
+      entity: "EntitySkeletalCowman",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Copper Coin",
+          itemId: "Itemizer.CopperCoin",
+          quantity: 5,
+          chance: 1,
+          imageUrl: "/textures/items/coinCopper.png",
+          itemName: "Copper Coin",
+        },
+      ],
+      imageUrl: "/textures/mobs/skeletalcowman.png",
+      model: "/models/nether/skeletalcowman/skeletalcowman.gltf",
+      health: 60,
+    },
+    {
+      entity: "EntityWitherWizard",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Weaponizer.EmberStaff",
+          itemId: "Weaponizer.EmberStaff",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/emberStaff.png",
+        },
+        {
+          item: "Nether Banner",
+          itemId: "SpecialBlockizer.NetherBanner",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/banner/netherBanner.png",
+        },
+      ],
+      imageUrl: "/textures/mobs/witherwizard.png",
+      model: "/models/nether/wither-wizard/wither-wizard.gltf",
+      health: 40,
+    },
+    {
+      entity: "EntityInfernal",
+      weight: 2,
+      min: 0,
+      max: 2,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Emberstone Ingot",
+          itemId: "Itemizer.IngotEmberstone",
+          quantity: 4,
+          chance: 1,
+          imageUrl: "/textures/items/ingotEmberstone.png",
+        },
+        {
+          item: "Nether Gems",
+          itemId: "Itemizer.CoinsNether",
+          quantity: 2,
+          chance: 1,
+          imageUrl: "/textures/items/netherGems.png",
+        },
+        {
+          item: "Infernal Chestplate",
+          itemId: "Armorizer.InfernalChestplate",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/chestplateInfernal.png",
+        },
+        {
+          item: "Infernal Helmet",
+          itemId: "Armorizer.InfernalHelmet",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/helmetInfernal.png",
+        },
+        {
+          item: "Infernal Boots",
+          itemId: "Armorizer.InfernalBoots",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/bootsInfernal.png",
+        },
+        {
+          item: "Infernal Leggings",
+          itemId: "Armorizer.InfernalLeggings",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/dimensions/common_images/Infernal_Leggings.png",
+        },
+        {
+          item: "Blockizer.FireLamp",
+          itemId: "Blockizer.FireLamp",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/blocks/animated/FireLamp.png",
+        },
+        {
+          item: "Nether Upgrade Kit",
+          itemId: "Itemizer.UpgradeKitNether",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/upgradeKitNether.png",
+        },
+      ],
+      imageUrl: "/textures/mobs/infernal.png",
+      model: "/models/nether/infernal/infernal.gltf",
+      health: 190,
+    },
+    {
+      entity: "EntityHellspot",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Nether Gems",
+          itemId: "Itemizer.CoinsNether",
+          quantity: 3,
+          chance: 1,
+          imageUrl: "/textures/items/netherGems.png",
+        },
+        {
+          item: "Laser Blaster",
+          itemId: "Weaponizer.LaserBlaster",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/laserBlaster.png",
+        },
+        {
+          item: "Copper Coin",
+          itemId: "Itemizer.CopperCoin",
+          quantity: 7,
+          chance: 1,
+          imageUrl: "/textures/items/coinCopper.png",
+        },
+      ],
+      imageUrl: "/textures/mobs/hellspot.png",
+      model: "/models/nether/hellspot/hellspot.gltf",
+      health: 50,
+    },
+    {
+      entity: "EntityEmbrake",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Fire Rune",
+          itemId: "Itemizer.FireRune",
+          quantity: 20,
+          chance: 1,
+          imageUrl: "/textures/items/runeFire.png",
+        },
+        {
+          item: "Nether Gems",
+          itemId: "Itemizer.CoinsNether",
+          quantity: 3,
+          chance: 1,
+          imageUrl: "/textures/items/netherGems.png",
+        },
+      ],
+      imageUrl: "/textures/mobs/embrake.png",
+      model: "/models/nether/embrake/embrake.gltf",
+      health: 120,
+    },
+    {
+      entity: "EntityFakePigman",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [],
+      imageUrl: "",
+      model: "",
+      health: 20,
+    },
+    {
+      entity: "EntityFlamewalker",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Ultraflame",
+          itemId: "Weaponizer.Ultraflame",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/ultraflame.png",
+        },
+        {
+          item: "Nether Gems",
+          itemId: "Itemizer.CoinsNether",
+          quantity: 3,
+          chance: 1,
+          imageUrl: "/textures/items/netherGems.png",
+        },
+      ],
+      imageUrl: "/textures/mobs/flamewalker.png",
+      model: "/models/nether/flamewalker/flamewalker.gltf",
+      hunterLevelRequirement: 0,
+      health: 20,
+    },
+    {
+      entity: "EntityHellcat",
+      weight: 20,
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Fiery Chops",
+          itemId: "Itemizer.FieryChops",
+          quantity: 5,
+          chance: 1,
+          imageUrl: "/textures/items/fieryChops.png",
+        },
+        {
+          item: "Nether Gems",
+          itemId: "Itemizer.CoinsNether",
+          quantity: 3,
+          chance: 1,
+          imageUrl: "/textures/items/netherGems.png",
+        },
+      ],
+      imageUrl: "/textures/mobs/hellcat.png",
+      model: "/models/nether/hellcat/hellcat.gltf",
+      health: 80,
+    },
+    {
+      entity: "EntityNethengeicBeast",
+      imageUrl: "/textures/mobs/nethengeicbeast.png",
+      model: "/models/nether/nethengeic-beast/nethengeic-beast.gltf",
+      creatureType: "monster",
+      health: 450,
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      min: 0,
+      max: 1,
+      loot: [
+        {
+          item: "Silver Coin",
+          itemId: "Itemizer.SilverCoin",
+          quantity: 2,
+          chance: 1,
+          imageUrl: "/textures/blocks/silverGrass.png",
+          itemName: "Silver Coin",
+        },
+        {
+          item: "Nethengeic Helmet",
+          itemId: "Armorizer.NethengeicHelmet",
+          quantity: 1,
+          chance: 0.025,
+          imageUrl: "/textures/banner/nethengeicBanner.png",
+          itemName: "Nethengeic Helmet",
+        },
+        {
+          item: "Nethengeic Boots",
+          itemId: "Armorizer.NethengeicBoots",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/banner/nethengeicBanner.png",
+          itemName: "Nethengeic Boots",
+        },
+        {
+          item: "Nethengeic Leggings",
+          itemId: "Armorizer.NethengeicLeggings",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/banner/nethengeicBanner.png",
+          itemName: "Nethengeic Leggings",
+        },
+        {
+          item: "Nethengeic Chestplate",
+          itemId: "Armorizer.NethengeicChestplate",
+          quantity: 1,
+          chance: 1,
+          imageUrl: "/textures/items/nethengeicCallstone.png",
+          itemName: "Nethengeic Chestplate",
+        },
+        {
+          item: "Nethengeic Slugger",
+          itemId: "Weaponizer.NethengeicSlugger",
+          quantity: 1,
+          chance: 0.01,
+          imageUrl: "/textures/items/nethengeicSlugger.png",
+          itemName: "Nethengeic Slugger",
+        },
+        {
+          item: "Nethengeic Sword",
+          itemId: "Weaponizer.NethengeicSword",
+          quantity: 1,
+          chance: 0.01,
+          imageUrl: "/textures/banner/nethengeicBanner.png",
+          itemName: "Nethengeic Sword",
+        },
+        {
+          item: "Nether Upgrade Kit",
+          itemId: "Itemizer.UpgradeKitNether",
+          quantity: 1,
+          chance: 0.005,
+          imageUrl: "/textures/items/upgradeKitNether.png",
+          itemName: "Nether Upgrade Kit",
+        },
+        {
+          item: "Nether Gems",
+          itemId: "Itemizer.CoinsNether",
+          quantity: 2,
+          chance: 1,
+          imageUrl: "/textures/items/netherGems.png",
+          itemName: "Nether Gems",
+        },
+        {
+          item: "Nethengeic Callstone",
+          itemId: "Itemizer.NethengeicCallstone",
+          quantity: 1,
+          chance: 0.05,
+          imageUrl: "/textures/items/nethengeicCallstone.png",
+          itemName: "Nethengeic Callstone",
+        },
+      ],
+      weight: 20,
+    },
+    {
+      entity: "EntityPigotron",
+      imageUrl: "/textures/mobs/pigotron.png",
+      model: "/models/nether/pigotron/pigotron.gltf",
+      registeredBiomes: [
+        {
+          name: "Nether",
+          imageUrl: "/vannila_biome_images/The_Nether.png",
+        },
+      ],
+      loot: [
+        {
+          item: "Grandsword",
+          itemId: "Weaponizer.Grandsword",
+          quantity: 1,
+          chance: 0.04,
+          imageUrl: "/textures/items/grandsword.png",
+          itemName: "Grandsword",
+        },
+      ],
+      min: 0,
+      max: 1,
+      creatureType: "monster",
+      health: 25,
+      weight: 20,
+    },
+  ],
+  npcs: [],
+  generatedOres: [
+    {
+      field: "Blockizer.oreEmberstone",
+      displayName: "Ore Emberstone",
+      veinSize: 7,
+      attemptsPerChunk: 2,
+      replaces: "Blocks.netherrack",
+      height: {
+        min: 0,
+        max: 38,
+      },
+      imageUrl: "/ores/emberstone_ore.png",
+    },
+  ],
+  generatedStructures: [
+    {
+      className: "NethengeicPit",
+      name: "Nethengeic Pit",
+      context: "StructureGenRare #16",
+      chance: {
+        description: "1 em 50",
+        formula: "randomNum == 13 (random.nextInt(50) + 1)",
+        denominator: 50,
+        comparator: "==",
+        value: 13,
+      },
+      biome: null,
+      imageUrl: "/dimensions/nether_images/Nethengeic_Pit.png",
+    },
+    {
+      className: "RuneShrinePlatform",
+      name: "Rune Shrine Platform",
+      context: "generateNether",
+      chance: {
+        description: "1 em 125",
+        formula: "random.nextInt(125) == 26",
+        denominator: 125,
+        comparator: "==",
+        value: 26,
+      },
+      biome: null,
+      imageUrl: "/dimensions/nether_images/Fire_Rune_Shrine_Platform.png",
+    },
+  ],
+  structures: [
+    {
+      className: "NethengeicPit",
+      name: "Nethengeic Pit",
+      context: "StructureGenRare #16",
+      chance: {
+        description: "1 em 50",
+        formula: "randomNum == 13 (random.nextInt(50) + 1)",
+        denominator: 50,
+        comparator: "==",
+        value: 13,
+      },
+      biome: null,
+      imageUrl: "/dimensions/nether_images/Nethengeic_Pit.png",
+    },
+    {
+      className: "RuneShrinePlatform",
+      name: "Rune Shrine Platform",
+      context: "generateNether",
+      chance: {
+        description: "1 em 125",
+        formula: "random.nextInt(125) == 26",
+        denominator: 125,
+        comparator: "==",
+        value: 26,
+      },
+      biome: null,
+      imageUrl: "/dimensions/nether_images/Fire_Rune_Shrine_Platform.png",
+    },
+  ],
+  resources: [
+    {
+      name: "Hellstone Bricks",
+      type: "Bloco de construção",
+      usage:
+        "Material resistente a explosões usado em bases e arenas para segurar King BamBamBam.",
+      imageUrl: "/dimensions/nether_images/Hellstone_Brick_Wall.png",
+    },
+    {
+      name: "Nether Tokens",
+      type: "Moeda",
+      usage:
+        "Cai de Hunters infernais e serve como moeda de troca em Lottomen e Restocked Traders encontrados no Nether.",
+      imageUrl: "/dimensions/nether_images/Nether_Tokens.png",
+    },
+  ],
+  bosses: [
+    {
+      name: "King BamBamBam",
+      howToSpawn:
+        "Use um Explosive Idol dentro da dimensão (loot de Nether chests ou trocas) para invocar o rei no local desejado.",
+      notes:
+        "Boss tanque que usa projéteis explosivos e concede King Bam's Blaster, Little Bam minions e grandes quantidades de Nether Tokens.",
+      imageUrl: "/dimensions/nether_images/King_BamBamBam.png",
+      spawnItems: [
+        {
+          itemId: "Itemizer.ExplosiveIdol",
+          item: "Explosive Idol",
+          usage:
+            "Ative o Explosive Idol em qualquer área do Nether para convocar o rei.",
+          imageUrl: "/textures/items/explosiveIdol.png",
+        },
+      ],
+      entities: [
+        {
+          entity: "EntityKingBamBamBam",
+          displayName: "KingBamBamBam",
+          imageUrl: "/textures/mobs/kingbambambam.png",
+          model:
+            "/models/boss/kingbambambam/king-bam-bam-bam/king-bam-bam-bam.gltf",
+          health: 900,
+        },
+        {
+          entity: "EntityLittleBam",
+          displayName: "Little Bam",
+          imageUrl: "/textures/mobs/littlebam.png",
+          model: "/models/boss/kingbambambam/little-bam/little-bam.gltf",
+          health: 30,
+        },
+      ],
+      loot: [
+        {
+          item: "Fireborne Sword",
+          itemId: "Weaponizer.FireborneSword",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 0.3333,
+          sourceEntities: ["EntityKingBamBamBam"],
+          imageUrl: "/dimensions/common_images/Fireborne_Sword.png",
+        },
+        {
+          item: "Explosive Bow",
+          itemId: "Weaponizer.ExplosiveBow",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 0.3333,
+          sourceEntities: ["EntityKingBamBamBam"],
+          imageUrl: "/dimensions/common_images/Explosive_Bow.png",
+        },
+        {
+          item: "Explosive Boots",
+          itemId: "Armorizer.ExplosiveBoots",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityKingBamBamBam"],
+          imageUrl: "/dimensions/common_images/Explosive_Boots.png",
+        },
+        {
+          item: "Explosive Leggings",
+          itemId: "Armorizer.ExplosiveLeggings",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityKingBamBamBam"],
+          imageUrl: "/dimensions/common_images/Explosive_Leggings.png",
+        },
+        {
+          item: "Explosive Chestplate",
+          itemId: "Armorizer.ExplosiveChestplate",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityKingBamBamBam"],
+          imageUrl: "/dimensions/common_images/Explosive_Chestplate.png",
+        },
+        {
+          item: "Explosive Helmet",
+          itemId: "Armorizer.ExplosiveHelmet",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityKingBamBamBam"],
+          imageUrl: "/dimensions/common_images/Explosive_Helmet.png",
+        },
+      ],
+    },
+    {
+      name: "Nethengeic Wither",
+      howToSpawn:
+        "Combine um Nether Beacon com Nether Stars e construa a estrutura em camadas sobre Netherrack para ativar a luta.",
+      notes:
+        "Versão AoA do Wither com fases flamejantes, necessária para liberar itens Nethengeic e prosseguir rumo a Greckon/Shadow Realms.",
+      imageUrl: "/dimensions/nether_images/Nethengeic_Wither.png",
+      spawnItems: [
+        {
+          itemId: "Itemizer.NethengeicCallstone",
+          item: "Nethengeic Callstone",
+          usage:
+            "Use a Nethengeic Callstone no Nether para chamar o Nethengeic Wither.",
+          imageUrl: "/textures/items/nethengeicCallstone.png",
+        },
+      ],
+      entities: [
+        {
+          entity: "EntityNethengeicWither",
+          displayName: "NethengeicWither",
+          imageUrl: "/textures/mobs/nethengeicwither.png",
+          model:
+            "/models/boss/nethengeicwither/nethengeic-wither/nethengeic-wither.gltf",
+          health: 1100,
+        },
+      ],
+      loot: [
+        {
+          item: "Discharge Cannon",
+          itemId: "Weaponizer.DischargeCannon",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityNethengeicWither"],
+          imageUrl: "/textures/items/dischargeCannon.png",
+        },
+        {
+          item: "Wither Cannon",
+          itemId: "Weaponizer.WitherCannon",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityNethengeicWither"],
+          imageUrl: "/textures/items/witherCannon.png",
+        },
+        {
+          item: "Withers Wrath",
+          itemId: "Weaponizer.WithersWrath",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityNethengeicWither"],
+          imageUrl: "/textures/items/withersWrath.png",
+        },
+        {
+          item: "Chain Wrecker",
+          itemId: "Weaponizer.ChainWrecker",
+          minQuantity: 1,
+          maxQuantity: 1,
+          chance: 1,
+          sourceEntities: ["EntityNethengeicWither"],
+          imageUrl: "/textures/items/chainWrecker.png",
+        },
+      ],
+    },
+  ],
+};
