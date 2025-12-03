@@ -1,16 +1,16 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 const NavigationProgress = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isNavigating, setIsNavigating] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     // When pathname or searchParams change, navigation completed
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsNavigating(false);
   }, [pathname, searchParams]);
 

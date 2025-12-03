@@ -12,7 +12,8 @@ import { Analytics } from "@vercel/analytics/next"
 const Layout = ({ children, initialProgress }) => {
   const pathname = usePathname();
   const { isLoaded, isSignedIn, user } = useUser();
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [navOpenedPath, setNavOpenedPath] = useState(null);
+  const isNavOpen = navOpenedPath === pathname;
   const isAuthRoute = pathname === "/" || pathname.startsWith("/auth");
 
   useEffect(() => {
@@ -43,12 +44,10 @@ const Layout = ({ children, initialProgress }) => {
     syncUser();
   }, [isLoaded, isSignedIn, user]);
 
-  useEffect(() => {
-    setIsNavOpen(false);
-  }, [pathname]);
-
-  const toggleNav = () => setIsNavOpen((prev) => !prev);
-  const closeNav = () => setIsNavOpen(false);
+  const toggleNav = () => {
+    setNavOpenedPath(isNavOpen ? null : pathname);
+  };
+  const closeNav = () => setNavOpenedPath(null);
 
   if (isAuthRoute) {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSignIn, useSignUp, useUser } from "@clerk/nextjs";
 
@@ -63,7 +63,7 @@ const providers = [
 
 const INTENT_KEY = "aoa_auth_intent";
 
-const AuthPage = () => {
+const AuthPageContent = () => {
   const router = useRouter();
   const { isLoaded: userLoaded, isSignedIn } = useUser();
   const searchParams = useSearchParams();
@@ -370,5 +370,11 @@ const AuthPage = () => {
     </section>
   );
 };
+
+const AuthPage = () => (
+  <Suspense fallback={null}>
+    <AuthPageContent />
+  </Suspense>
+);
 
 export default AuthPage;

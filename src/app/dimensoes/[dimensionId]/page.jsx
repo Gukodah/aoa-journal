@@ -769,9 +769,9 @@ const NpcsSection = ({ dimension, progress }) => {
  */
 const BossesSection = ({ dimension, progress }) => {
   const bosses = Array.isArray(dimension.bosses) ? dimension.bosses : [];
-  if (!bosses.length) return null;
-
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  if (!bosses.length) return null;
 
   const boss = bosses[Math.min(currentIndex, bosses.length - 1)];
   const entities = boss.entities || [];
